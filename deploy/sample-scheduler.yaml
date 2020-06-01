@@ -161,6 +161,8 @@ data:
       queueSort:
         enabled:
         - name: "QoSSort"
+      disabled:
+        - name: "*"
       preFilter:
         enabled:
         - name: "sample-plugin"
@@ -208,10 +210,9 @@ spec:
         - name: scheduler-ctrl
           image: yaopolytech/sample-scheduler:v0.1.0
           imagePullPolicy: IfNotPresent
+          command: ["sample-scheduler-framework"]
           args:
-            - sample-scheduler-framework
             - --config=/etc/kubernetes/scheduler-config.yaml
-            - --v=3
           resources:
             requests:
               cpu: "50m"
