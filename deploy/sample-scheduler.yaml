@@ -158,15 +158,22 @@ data:
       lockObjectName: sample-scheduler
       lockObjectNamespace: kube-system
     plugins:
+      queueSort:
+        enabled:
+        - name: "QoSSort"
       preFilter:
         enabled:
         - name: "sample-plugin"
       filter:
         enabled:
         - name: "sample-plugin"
+      reserve:
+        enabled:
+        - name: "multipoint-communicating-plugin"
       preBind:
         enabled:
         - name: "sample-plugin"
+        - name: "multipoint-communicating-plugin"
     pluginConfig:
     - name: "sample-plugin"
       args:
@@ -199,7 +206,7 @@ spec:
             name: scheduler-config
       containers:
         - name: scheduler-ctrl
-          image: cnych/sample-scheduler:v0.1.6
+          image: yaopolytech/sample-scheduler:v0.1.0
           imagePullPolicy: IfNotPresent
           args:
             - sample-scheduler-framework
