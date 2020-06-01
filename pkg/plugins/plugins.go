@@ -33,7 +33,7 @@ func New(plArgs *runtime.Unknown, handle framework.FrameworkHandle) (framework.P
 	if err := framework.DecodeInto(plArgs, args); err != nil {
 		return nil, err
 	}
-	klog.V(3).Infof("--------> args: %+v", args)
+	klog.Infof("--------> args: %+v", args)
 	return &Sample{
 		args:   args,
 		handle: handle,

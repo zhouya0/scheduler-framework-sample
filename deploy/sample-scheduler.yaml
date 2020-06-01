@@ -161,23 +161,20 @@ data:
       queueSort:
         enabled:
         - name: "QoSSort"
-      disabled:
+        disabled:
         - name: "*"
-      preFilter:
-        enabled:
-        - name: "sample-plugin"
       filter:
         enabled:
-        - name: "sample-plugin"
+        - name: "sample"
       reserve:
         enabled:
         - name: "multipoint-communicating-plugin"
       preBind:
         enabled:
-        - name: "sample-plugin"
+        - name: "sample"
         - name: "multipoint-communicating-plugin"
     pluginConfig:
-    - name: "sample-plugin"
+    - name: "sample"
       args:
         favorite_color: "#326CE5"
         favorite_number: 7
@@ -209,9 +206,9 @@ spec:
       containers:
         - name: scheduler-ctrl
           image: yaopolytech/sample-scheduler:v0.1.0
-          imagePullPolicy: IfNotPresent
-          command: ["scheduler-framework-sample"]
+          imagePullPolicy: Always
           args:
+            - scheduler-framework-sample
             - --config=/etc/kubernetes/scheduler-config.yaml
           resources:
             requests:
