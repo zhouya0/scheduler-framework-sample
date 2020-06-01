@@ -210,7 +210,7 @@ spec:
         - name: scheduler-ctrl
           image: yaopolytech/sample-scheduler:v0.1.0
           imagePullPolicy: IfNotPresent
-          command: ["sample-scheduler-framework"]
+          command: ["scheduler-framework-sample"]
           args:
             - --config=/etc/kubernetes/scheduler-config.yaml
           resources:

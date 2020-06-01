@@ -4,6 +4,6 @@ WORKDIR /
 
 COPY _output/bin/scheduler-framework-sample /usr/local/bin
 
-CMD ["sh", "-c", "echo $HOME"]
+CMD ["scheduler-framework-sample"]
 
 
